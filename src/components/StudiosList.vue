@@ -16,7 +16,7 @@ export default {
     };
   },
   async mounted() {
-    this.StudiosList = await db.Get("studio/list?", [[]]);
+    this.StudiosList = await db.Get("Studio/", [[]]);
   },
   components: {
     Studio
