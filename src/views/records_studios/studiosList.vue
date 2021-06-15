@@ -78,14 +78,7 @@
                     fromTime: null,
                     toTime: null,
                 },
-                studios: [
-                    {
-                        'id' : 1,
-                        'name' : 12,
-                        'description' : 123,
-                        'address' : 12321,
-                    }
-                ],
+                studios: [],
             };
         },
         components: {
