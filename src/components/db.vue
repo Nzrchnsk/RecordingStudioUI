@@ -21,15 +21,15 @@ async function Post(api, value) {
   const data = await axios.post(linkFull, value);
   return data;
 }
-async function Put(api, id, value) {
-  let linkFull = link + api + `id=${id}`;
-  const data = await axios.put(linkFull, value);
-  return data;
+async function Put(api, value) {
+    let linkFull = link + api;
+    const data = await axios.put(linkFull, value);
+    return data;
 }
-async function Delete(api, id) {
-  let linkFull = link + api + `id=${id}`;
-  const data = await axios.delete(linkFull);
-  return data;
+async function Delete(api) {
+    let linkFull = link + api;
+    const data = await axios.delete(linkFull);
+    return data;
 }
 export default {
   Get,
