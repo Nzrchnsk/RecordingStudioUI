@@ -1,18 +1,32 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/studio">Studios</router-link>
+  <headerBar/>
+  <div>
+    <div class="container content-container mt-5">
+      <router-view/>
+    </div>
   </div>
-  <router-view/>
 </template>
+<script>
+  import headerBar from './views/components/header';
 
+  export default {
+    name: 'App',
+
+    components: {
+      headerBar,
+    },
+    mounted() {
+      if (!localStorage.getItem('auth')) {
+        this.$router.push({name: 'login'});
+      }
+    }
+  }
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
