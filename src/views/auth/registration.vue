@@ -11,7 +11,7 @@
                         <input type="password" v-model="data.password" placeholder="Пароль">
                         <div v-if="invalidValidation" class="mb-2 validation-failed"><label><small>Пожалуйста заполните все поля</small></label></div>
                         <div v-if="invalidData" class="mb-2 validation-failed"><label><small>Неверные данные для входа</small></label></div>
-                        <input type="button" @click="registration" value="Зарегистрироваться" href="#">
+                        <input type="button" @click="registration" value="Зарегистрироваться">
                     </form>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     let {data} = await Api.Post('account/registration', this.data);
                     localStorage.setItem('auth', data.accessToken)
                     localStorage.setItem('role', data.role)
-                    window.location = '/';
+                    window.location = '/records_studios';
                 } catch (e) {
                     this.invalidData = true;
                     console.log(e)

@@ -46,7 +46,7 @@
                     let {data} = await Api.Post('account/login', this.data);
                     localStorage.setItem('auth', data.accessToken)
                     localStorage.setItem('role', data.role)
-                    window.location = '/';
+                    window.location = '/records_studios';
                 } catch (e) {
                     this.invalidData = true;
                     console.log(e)
