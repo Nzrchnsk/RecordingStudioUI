@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                 <tr  v-for="item in reserves">
-                    <td>{{item.number}}</td>
+                    <td>{{item.id}}</td>
                     <td>{{item.user.userName}}</td>
                     <td>{{item.studioName}}</td>
                     <td>{{item.reservations_date}}</td>
