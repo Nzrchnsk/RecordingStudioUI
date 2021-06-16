@@ -18,8 +18,8 @@
                     <td>{{item.number}}</td>
                     <td>{{item.user.userName}}</td>
                     <td>{{item.studioName}}</td>
-                    <td>{{item.reservationsDate}}</td>
-                    <td>{{item.reservationsTime}}</td>
+                    <td>{{item.reservations_date}}</td>
+                    <td>{{item.reservations_time}}</td>
                     <td>
                         <button type="button" v-if="admin" @click="deleteReserves(item.id)" class="btn btn-danger btn-sm">
                             Отменить бронирование
@@ -62,6 +62,7 @@
                     this.reserves = data;
                     for(let i = 0; i < this.reserves.length; i++) {
                         this.reserves[i].reservations_date = moment(this.tickets[i].reservations_date).format('YYYY-MM-DD');
+                        this.reserves[i].reservations_time = moment(this.tickets[i].reservations_date).format('HH:mm');
                     }
                 } catch (e) {
                     console.log(e)
