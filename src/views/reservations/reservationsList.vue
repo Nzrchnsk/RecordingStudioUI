@@ -9,7 +9,8 @@
                     <th scope="col">Пользователь</th>
                     <th scope="col">Студия</th>
                     <th scope="col">Дата бронирования</th>
-                    <th scope="col">Время</th>
+                    <th scope="col">Время от</th>
+                    <th scope="col">Время до</th>
                     <th scope="col">Действия</th>
                 </tr>
                 </thead>
@@ -17,9 +18,10 @@
                 <tr  v-for="item in reserves">
                     <td>{{item.id}}</td>
                     <td>{{item.user.userName}}</td>
-                    <td>{{item.studioName}}</td>
+                    <td>{{item.studio.name}}</td>
                     <td>{{item.reservations_date}}</td>
-                    <td>{{item.reservations_time}}</td>
+                    <td>{{item.from_time}}</td>
+                    <td>{{item.to_time}}</td>
                     <td>
                         <button type="button" v-if="admin" @click="deleteReserves(item.id)" class="btn btn-danger btn-sm">
                             Отменить бронирование
@@ -62,7 +64,8 @@
                     this.reserves = data;
                     for(let i = 0; i < this.reserves.length; i++) {
                         this.reserves[i].reservations_date = moment(this.tickets[i].reservations_date).format('YYYY-MM-DD');
-                        this.reserves[i].reservations_time = moment(this.tickets[i].reservations_date).format('HH:mm');
+                        this.reserves[i].from_time = moment(this.tickets[i].formDateTime).format('HH:mm');
+                        this.reserves[i].to_time = moment(this.tickets[i].toDateTime).format('HH:mm');
                     }
                 } catch (e) {
                     console.log(e)
