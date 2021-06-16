@@ -19,9 +19,9 @@
                     <td>{{item.id}}</td>
                     <td>{{item.user.userName}}</td>
                     <td>{{item.studio.name}}</td>
-                    <td>{{item.reservations_date}}</td>
-                    <td>{{item.from_time}}</td>
-                    <td>{{item.to_time}}</td>
+                    <td>{{item.fromDateTime}}</td>
+                    <td>{{item.fromDateTime}}</td>
+                    <td>{{item.toDateTime}}</td>
                     <td>
                         <button type="button" v-if="admin" @click="deleteReserves(item.id)" class="btn btn-danger btn-sm">
                             Отменить бронирование
@@ -63,9 +63,10 @@
                     let {data} = await Api.Get('reservations');
                     this.reserves = data;
                     for(let i = 0; i < this.reserves.length; i++) {
-                        this.reserves[i].reservations_date = moment(this.tickets[i].reservations_date).format('YYYY-MM-DD');
-                        this.reserves[i].from_time = moment(this.tickets[i].formDateTime).format('HH:mm');
-                        this.reserves[i].to_time = moment(this.tickets[i].toDateTime).format('HH:mm');
+                      debugger
+                        this.reserves[i].fromDateTime = moment(this.tickets[i].fromDateTime).format('YYYY-MM-DD');
+                        this.reserves[i].fromDateTime = moment(this.tickets[i].fromDateTime).format('HH:mm');
+                        this.reserves[i].toDateTime = moment(this.tickets[i].toDateTime).format('HH:mm');
                     }
                 } catch (e) {
                     console.log(e)
