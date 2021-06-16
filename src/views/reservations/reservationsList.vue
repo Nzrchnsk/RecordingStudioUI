@@ -15,11 +15,11 @@
                 </thead>
                 <tbody>
                 <tr  v-for="item in reserves">
-                    <td>{{item.number}}</td>
+                    <td>{{item.id}}</td>
                     <td>{{item.user.userName}}</td>
-                    <td>{{item.studioName}}</td>
-                    <td>{{item.reservationsDate}}</td>
-                    <td>{{item.reservationsTime}}</td>
+                    <td>{{item.studio.name}}</td>
+                    <td>{{item.fromDateTime}}</td>
+                    <td>{{item.fromDateTime}}</td>
                     <td>
                         <button type="button" v-if="admin" @click="deleteReserves(item.id)" class="btn btn-danger btn-sm">
                             Отменить бронирование

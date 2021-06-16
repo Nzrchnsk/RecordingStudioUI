@@ -100,10 +100,10 @@
                 }
                 try {
                     await Api.Post('reservation', this.modal).then(response => {
-                        if (response.data === false) {
-                            alert('Выбранное время уже занято');
+                        if (response.data.success === false) {
+                            alert(response.data.message);
                         } else {
-                            alert('Студия успешно забронирована');
+                            alert(response.data.message);
                             $('#studioBroned').modal('hide')
                             this.modalClear();
                         }
